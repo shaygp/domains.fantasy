@@ -1,0 +1,32 @@
+{
+  "name": "fantasy-domains-backend",
+  "version": "1.0.0",
+  "description": "Blockchain backend for Fantasy Domains - Gamified domain auction platform on Doma Protocol",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "deploy": "hardhat run scripts/deploy.js --network doma",
+    "test": "hardhat test",
+    "compile": "hardhat compile"
+  },
+  "keywords": ["doma", "domains", "auction", "blockchain", "web3"],
+  "author": "Fantasy Domains",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.0",
+    "web3": "^4.3.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.2",
+    "nodemon": "^3.0.2"
+  }
+}

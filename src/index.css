@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DomainFi Design System - Terminal aesthetic with doma.xyz colors */
+
+@layer base {
+  :root {
+    /* Core terminal theme */
+    --background: 220 20% 8%;
+    --foreground: 0 0% 98%;
+
+    /* Glass cards */
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Bright blue primary */
+    --primary: 225 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Terminal green accents */
+    --secondary: 142 71% 45%;
+    --secondary-foreground: 220 20% 8%;
+
+    /* Muted terminal colors */
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 65%;
+
+    /* Success/accent green */
+    --accent: 142 71% 45%;
+    --accent-foreground: 220 20% 8%;
+
+    /* Terminal red for errors */
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Glass borders */
+    --border: 220 15% 25%;
+    --input: 220 15% 18%;
+    --ring: 225 100% 65%;
+
+    /* Terminal warning orange */
+    --warning: 35 85% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Custom terminal colors */
+    --terminal-glow: 142 71% 45%;
+    --terminal-blue: 235 85% 65%;
+    --terminal-white: 0 0% 98%;
+    --glass-bg: 220 20% 12%;
+    --glass-border: 220 15% 25%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(235 85% 65%), hsl(235 85% 75%));
+    --gradient-terminal: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsla(220, 20%, 12%, 0.8), 
+      hsla(220, 15%, 15%, 0.6));
+
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsla(142, 71%, 45%, 0.3);
+    --shadow-blue-glow: 0 0 30px hsla(235, 85%, 65%, 0.2);
+    --shadow-glass: 0 8px 32px hsla(220, 20%, 5%, 0.4);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode - clean doma.xyz inspired */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --primary: 235 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 20% 15%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 235 85% 65%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 15% 90%;
+    --input: 220 15% 96%;
+    --ring: 235 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  }
+
+  /* Terminal glow effects */
+  .terminal-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .blue-glow {
+    box-shadow: var(--shadow-blue-glow);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Matrix rain animation */
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+
+  .matrix-char {
+    animation: matrix-rain 3s linear infinite;
+    color: hsl(var(--terminal-glow));
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Typing animation */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: hsl(var(--terminal-glow)); }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 2s steps(40) 1s 1 normal both, blink 1s steps(1) infinite;
+  }
+
+  /* Confidence rings */
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  .confidence-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Scanline effect */
+  @keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+  }
+
+  .scanline {
+    animation: scanline 3s linear infinite;
+  }
+}
