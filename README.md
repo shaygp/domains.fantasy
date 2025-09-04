@@ -1,6 +1,6 @@
 # Fantasy Domains
 
-Live domain auction fantasy league with AI-powered valuation oracles.
+Live domain auction fantasy league with valuation oracles.
 
 ## Getting Started
 
